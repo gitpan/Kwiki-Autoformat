@@ -4,7 +4,7 @@ use warnings;
 use Kwiki::Plugin '-Base';
 use Kwiki::Installer '-base';
 
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 const class_title => 'Text autoformat';
 const class_id => 'autoformat';
@@ -20,9 +20,9 @@ use base 'Spoon::Formatter::WaflBlock';
 
 sub to_html {
     require Text::Autoformat;
-    return '<pre>'
-        .Text::Autoformat::autoformat($self->block_text)
-        .'</pre>';
+    my $text = Text::Autoformat::autoformat($self->block_text);
+    $text =~ s/\n+//s;
+    return "<pre>$text</pre>";
 }
 
 package Kwiki::Autoformat;
