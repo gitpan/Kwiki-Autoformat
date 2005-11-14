@@ -9,7 +9,8 @@ license('perl');
 requires(qw(
     perl 5.6.1
     Kwiki 0.30
-    Text::Autoformat
+    Text::Autoformat 1.12
+    Spiffy 0.22
 ));
 
 check_nmake();

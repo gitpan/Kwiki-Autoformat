@@ -1,9 +1,6 @@
-#line 1 "inc/Module/Install.pm - /usr/local/share/perl/5.8.3/Module/Install.pm"
-# $File: //depot/cpan/Module-Install/lib/Module/Install.pm $ $Author: autrijus $
-# $Revision: #67 $ $Change: 1885 $ $DateTime: 2004/03/11 05:55:27 $ vim: expandtab shiftwidth=4
-
+#line 1 "inc/Module/Install.pm - /usr/local/share/perl/5.8.7/Module/Install.pm"
 package Module::Install;
-$VERSION = '0.33';
+$VERSION = '0.39';
 
 die << "." unless $INC{join('/', inc => split(/::/, __PACKAGE__)).'.pm'};
 Please invoke ${\__PACKAGE__} with:
@@ -22,8 +19,9 @@ use File::Find ();
 use File::Path ();
 
 @inc::Module::Install::ISA = 'Module::Install';
+*inc::Module::Install::VERSION = *VERSION;
 
-#line 129
+#line 130
 
 sub import {
     my $class = shift;
@@ -46,7 +44,7 @@ sub import {
     delete $INC{"$self->{path}.pm"};
 }
 
-#line 156
+#line 157
 
 sub autoload {
     my $self = shift;
@@ -66,7 +64,7 @@ sub autoload {
     };
 }
 
-#line 181
+#line 182
 
 sub new {
     my ($class, %args) = @_;
@@ -91,7 +89,7 @@ sub new {
     bless(\%args, $class);
 }
 
-#line 210
+#line 211
 
 sub call {
     my $self   = shift;
@@ -102,7 +100,7 @@ sub call {
     goto &{$obj->can($method)};
 }
 
-#line 225
+#line 226
 
 sub load {
     my ($self, $method) = @_;
@@ -126,7 +124,7 @@ END
     $obj;
 }
 
-#line 255
+#line 256
 
 sub load_extensions {
     my ($self, $path, $top_obj) = @_;
@@ -145,7 +143,7 @@ sub load_extensions {
     }
 }
 
-#line 279
+#line 280
 
 sub find_extensions {
     my ($self, $path) = @_;
@@ -168,4 +166,4 @@ sub find_extensions {
 
 __END__
 
-#line 614
+#line 618

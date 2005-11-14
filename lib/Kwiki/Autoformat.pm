@@ -1,10 +1,11 @@
 package Kwiki::Autoformat;
 use strict;
 use warnings;
-use Kwiki::Plugin '-Base';
-use Kwiki::Installer '-base';
 
-our $VERSION = 0.02;
+use Kwiki::Plugin -Base;
+use Kwiki::Installer -mixin;
+
+our $VERSION = 0.03;
 
 const class_title => 'Text autoformat';
 const class_id => 'autoformat';
@@ -26,7 +27,6 @@ sub to_html {
 }
 
 package Kwiki::Autoformat;
-1;
 
 __DATA__
 
